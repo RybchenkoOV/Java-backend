@@ -1,0 +1,130 @@
+{
+  "data": {
+    "id": "YDOAG5f",
+    "title": "My test album",
+    "description": "Test Test Test",
+    "datetime": 1630253342,
+    "cover": "bv78Em4",
+    "cover_edited": null,
+    "cover_width": 700,
+    "cover_height": 465,
+    "account_url": "RibusOV",
+    "account_id": 153961561,
+    "privacy": "hidden",
+    "layout": "blog",
+    "views": 1,
+    "link": "https:\/\/imgur.com\/a\/YDOAG5f",
+    "favorite": false,
+    "nsfw": false,
+    "section": null,
+    "images_count": 1,
+    "in_gallery": false,
+    "is_ad": false,
+    "include_album_ads": false,
+    "is_album": true,
+    "deletehash": "6s3yYzmAXD534qv",
+    "images": [
+      {
+        "id": "bv78Em4",
+        "title": "SH",
+        "description": null,
+        "datetime": 1630253858,
+        "type": "image\/jpeg",
+        "animated": false,
+        "width": 700,
+        "height": 465,
+        "size": 31458,
+        "views": 99,
+        "bandwidth": 3114342,
+        "vote": null,
+        "favorite": false,
+        "nsfw": null,
+        "section": null,
+        "account_url": null,
+        "account_id": null,
+        "is_ad": false,
+        "in_most_viral": false,
+        "has_sound": false,
+        "tags": [],
+        "ad_type": 0,
+        "ad_url": "",
+        "edited": "0",
+        "in_gallery": false,
+        "deletehash": "tHePlxxFnlkntrk",
+        "name": "123.jpg",
+        "link": "https:\/\/i.imgur.com\/bv78Em4.jpg"
+      }
+    ],
+    "ad_config": {
+      "safeFlags": [
+        "not_in_gallery",
+        "share"
+      ],
+      "highRiskFlags": [],
+      "unsafeFlags": [
+        "sixth_mod_unsafe"
+      ],
+      "wallUnsafeFlags": [],
+      "showsAds": false
+    }
+  },
+  "success": true,
+  "status": 200
+}
+{
+  "data": {
+    "id": 153961561,
+    "url": "RibusOV",
+    "bio": null,
+    "avatar": "https:\/\/imgur.com\/user\/RibusOV\/avatar?maxwidth=290",
+    "avatar_name": "default\/R",
+    "cover": "https:\/\/imgur.com\/user\/RibusOV\/cover?maxwidth=2560",
+    "cover_name": "default\/1-space",
+    "reputation": 6,
+    "reputation_name": "Neutral",
+    "created": 1630227315,
+    "pro_expiration": false,
+    "user_follow": {
+      "status": false
+    },
+    "is_blocked": false
+  },
+  "success": true,
+  "status": 200
+}
+{
+  "data": [
+    {
+      "id": "bv78Em4",
+      "title": "SH",
+      "description": null,
+      "datetime": 1630253858,
+      "type": "image\/jpeg",
+      "animated": false,
+      "width": 700,
+      "height": 465,
+      "size": 31458,
+      "views": 99,
+      "bandwidth": 3114342,
+      "vote": null,
+      "favorite": false,
+      "nsfw": null,
+      "section": null,
+      "account_url": "RibusOV",
+      "account_id": 153961561,
+      "is_ad": false,
+      "in_most_viral": false,
+      "has_sound": false,
+      "tags": [],
+      "ad_type": 0,
+      "ad_url": "",
+      "edited": "0",
+      "in_gallery": false,
+      "deletehash": "tHePlxxFnlkntrk",
+      "name": "123.jpg",
+      "link": "https:\/\/i.imgur.com\/bv78Em4.jpg"
+    }
+  ],
+  "success": true,
+  "status": 200
+}

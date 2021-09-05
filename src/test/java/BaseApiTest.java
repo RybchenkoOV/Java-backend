@@ -6,6 +6,7 @@ abstract class BaseApiTest {
     private final String userName;
     private final String albumHash;
     private final String imageHash;
+    private final String commentID;
     private ProperyScanner scanner;
 
 
@@ -17,7 +18,9 @@ abstract class BaseApiTest {
         userName = scanner.getProperty("imgur.username");
         albumHash = scanner.getProperty("imgur.albumHash");
         imageHash = scanner.getProperty("imgur.imageHash");
+        commentID = scanner.getProperty("imgur.commentID");
     }
+    public String getCommentID() { return commentID; }
 
     public String getToken() {
         return token;

@@ -32,10 +32,6 @@ abstract class BaseApiTestImgur {
         return userName;
     }
 
-    public PropertyScanner getScanner() {
-        return scanner;
-    }
-
     public String getImageHash() {
         return imageHash;
     }
@@ -44,7 +40,4 @@ abstract class BaseApiTestImgur {
         return imageId;
     }
 
-    public String getCommentId() {
-        return commentId;
-    }
 }

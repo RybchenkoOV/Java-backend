@@ -1,38 +1,43 @@
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class ImgurImageTests extends BaseApiTestImgur {
-
-    private String currentDeleteHash;
 
     public ImgurImageTests() throws IOException {
     }
 
     @BeforeEach
-    void setUp() {
-        RestAssured.baseURI = getBaseUrl();
+    void beforeTest() {
+
+        RestAssured.requestSpecification = new RequestSpecBuilder()
+                .setBaseUri(getBaseUrl())
+                .setAuth(oauth2(getToken()))
+                .setContentType(ContentType.JSON)
+                .addFilter(new ResponseLoggingFilter())
+                .build();
+        responseSpecification = new ResponseSpecBuilder()
+                .expectContentType(ContentType.JSON)
+                .expectStatusCode(200)
+                .build();
     }
 
     @Test
     @DisplayName("Test Get info image")
     void testGetImageBase() {
         given()
-                .auth()
-                .oauth2(getToken())
-                .expect()
-                .log()
-                .all()
-                .when()
-                .get("/3/image/{imageHash}", getImageHash())
+                .get(EndPointsForImgur.imageBase, getImageHash())
                 .then()
-                .statusCode(200)
                 .assertThat()
                 .body("data.id", is("xqRgN9O"));
     }
@@ -45,39 +50,24 @@ public class ImgurImageTests extends BaseApiTestImgur {
 
     }
 
-    private String uploadImage(){
+    private String uploadImage() {
         return given()
-                .auth()
-                .oauth2(getToken())
-                .when()
                 .header(new Header("content-type", "multipart/form-data"))
                 .multiPart("image", new File("./src/main/resources/image.jpg"))
-                .expect()
-                .body("data.id", is(notNullValue()))
-                .body("data.deletehash", is(notNullValue()))
-                .log()
-                .all()
-                .when()
-                .post("3/upload")
+                .post(EndPointsForImgur.imageUpload)
                 .then()
-                .statusCode(200)
+                .body("data.id", is(notNullValue()))
                 .extract()
                 .response()
                 .jsonPath()
                 .getString("data.deletehash");
     }
+
     @Test
     @DisplayName("Test Delete image")
     void testDeleteImage() {
-        currentDeleteHash = uploadImage();
+        String currentDeleteHash = uploadImage();
         given()
-                .auth()
-                .oauth2(getToken())
-                .when()
-                .delete("/3/image/{imageHash}",currentDeleteHash)
-                .prettyPeek()
-                .then()
-                .statusCode(200)
-                .contentType("application/json");
+                .delete(EndPointsForImgur.imageDelete, currentDeleteHash);
     }
 }
